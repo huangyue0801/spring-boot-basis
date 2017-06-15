@@ -1,0 +1,30 @@
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {
+            url NEXUS_MAVEN_URL
+        }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.4.RELEASE")
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {
+            url NEXUS_MAVEN_URL
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

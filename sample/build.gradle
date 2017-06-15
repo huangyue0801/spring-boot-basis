@@ -1,0 +1,17 @@
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'war'
+
+war {
+    baseName 'boot-sample'
+}
+
+dependencyManagement {
+    resolutionStrategy {
+        cacheChangingModulesFor 10, 'seconds'
+    }
+}
+
+dependencies {
+    compile project(':security')
+}

@@ -1,0 +1,9 @@
+{
+  "cacheNames": [
+    {
+      "name": "cacheName",
+      "expires": 0,
+      "expires_unit": "秒"
+    }
+  ]
+}
