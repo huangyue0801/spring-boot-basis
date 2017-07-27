@@ -20,7 +20,7 @@ dependencies {
     compile "org.apache.tomcat.embed:tomcat-embed-jasper"
     compile "org.springframework.boot:spring-boot-devtools"
     runtime "mysql:mysql-connector-java"
-    compile "com.alibaba:druid:1.0.31"
+    compile "com.alibaba:druid:1.1.2"
     compile "javax.servlet:jstl:1.2"
-    compile "com.ibeetl:beetl:2.7.16"
+    compile "com.ibeetl:beetl:2.7.21"
 }
