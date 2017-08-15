@@ -26,7 +26,7 @@ public class UserLoginHandler extends SavedRequestAwareAuthenticationSuccessHand
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         String device = request.getHeader("device");
         LOGGER.info("登录成功 device={}", device);
-        if ("ios".equals(device) || "android".equals(device) || "ajax".equals(device)) {
+        if (User.DEVICE_LIST.contains(device)) {
             AuthUser user = (AuthUser) authentication.getPrincipal();
             responseUserInfo(response, user);
         } else {
@@ -41,7 +41,7 @@ public class UserLoginHandler extends SavedRequestAwareAuthenticationSuccessHand
         if (exception instanceof CaptchaAuthenticationException) {
             message = "验证码错误！";
         }
-        if ("ios".equals(device) || "android".equals(device) || "ajax".equals(device)) {
+        if (User.DEVICE_LIST.contains(device)) {
             responseFailure(response, message);
         } else {
             request.getSession().setAttribute("message", message);

@@ -28,7 +28,7 @@ public class UserLoginController {
         String device = request.getHeader("device");
         HttpSession session = request.getSession();
         Object message = session.getAttribute("message");
-        if ("ios".equals(device) || "android".equals(device) || "ajax".equals(device)) {
+        if (User.DEVICE_LIST.contains(device)) {
             return new ModelAndView("forward:/loginApi");
         }
         ModelAndView mav = new ModelAndView("login");

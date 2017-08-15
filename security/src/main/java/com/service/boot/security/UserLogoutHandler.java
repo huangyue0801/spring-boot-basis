@@ -24,7 +24,7 @@ public class UserLogoutHandler implements LogoutSuccessHandler {
     public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         String device = request.getHeader("device");
         LOGGER.info("退出登录 device={}", device);
-        if ("ios".equals(device) || "android".equals(device) || "ajax".equals(device)) {
+        if (User.DEVICE_LIST.contains(device)) {
             PrintWriter writer = response.getWriter();
             Map<String, Object> map = new HashMap<>(1);
             map.put("code", 0);

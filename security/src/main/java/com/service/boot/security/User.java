@@ -3,10 +3,14 @@ package com.service.boot.security;
 import com.service.boot.basis.dao.annotation.Column;
 import com.service.boot.basis.dao.annotation.Table;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 @Table(name = "user")
 public class User implements java.io.Serializable{
+
+    public static final List<String> DEVICE_LIST = Arrays.asList("android", "ios", "ajax");
 
     @Column(name = "id", primaryKey = true)
     private java.lang.Integer id;

@@ -21,6 +21,7 @@ public class JSON {
 
     private static final ObjectMapper OM = new ObjectMapper();
     private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private static final String ERROR_JSON = "{\"code\":500, \"message\":\"服务器错误\"}";
 
     static {
         OM.configure(SerializationFeature.WRITE_NULL_MAP_VALUES, false);
@@ -81,7 +82,7 @@ public class JSON {
             return OM.writeValueAsString(object);
         } catch (JsonProcessingException e) {
             LOGGER.error("JSON解析异常！", e);
-            return null;
+            return ERROR_JSON;
         }
     }
 
